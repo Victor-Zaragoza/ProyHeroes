@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <h1 class="display-4">HOLA SUPERHEROES</h1>
+  <p class="lead">¿ESTAS LISTO PARA EMPEZAR ESTA AVENTURA SOBRE LA VIDA DE TUS SUPERHEROES FAVORITOS?</p>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+    data-whatever="@mdo">REGISTRO</button>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">REGISTRO</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <span>Usuario: </span>
+          <input type="text" [(ngModel)]="usuario.nombre"><br><br>
+
+          <span>Sexo: </span><br>
+          <input name="options" ng-control="options" type="radio" [value]="1" [(ngModel)]="usuario.sexo">masculino<br />
+          <input name="options" ng-control="options" type="radio" [value]="2" [(ngModel)]="usuario.sexo">femenino<br />
+
+          <span>Email: </span>
+          <input type="text" [(ngModel)]="usuario.email"><br><br>
+
+          <span>Fecha: </span>
+          <input type="date" [(ngModel)]="usuario.fecha"><br><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary" (click)="agregarUsuario()">Registro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

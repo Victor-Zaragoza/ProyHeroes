@@ -1,0 +1,82 @@
+<h1 class="animated fadeIn text-center">
+  ¡Mira los trailers de algunas de las películas basadas en cómics más
+  recientes!
+</h1>
+<hr />
+<div class="box">
+  <div
+    id="carouselExampleIndicators"
+    class="row content carousel slide"
+    data-ride="carousel"
+  >
+    <ol class="carousel-indicators">
+      <li
+        data-target="#carouselExampleIndicators"
+        data-slide-to="0"
+        class="active"
+      ></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active content video">
+        <iframe
+          class="d-block w-100 video"
+          [src]="video1 | domseguro: 'https://www.youtube.com/embed/'"
+          data-src="holder.js/1120x630?theme=industrial"
+          alt="900x400"
+          data-holder-rendered="true"
+          width="1120"
+          height="630"
+        ></iframe>
+      </div>
+      <div class="carousel-item content">
+        <iframe
+          class="d-block w-100 video"
+          [src]="video2 | domseguro: 'https://www.youtube.com/embed/'"
+          data-src="holder.js/1120x630?theme=industrial"
+          alt="900x400"
+          data-holder-rendered="true"
+          width="1120"
+          height="630"
+        ></iframe>
+      </div>
+      <div class="carousel-item content">
+        <iframe
+          class="d-block w-100 video"
+          [src]="video3 | domseguro: 'https://www.youtube.com/embed/'"
+          data-src="holder.js/1120x630?theme=industrial"
+          alt="900x400"
+          data-holder-rendered="true"
+          width="1120"
+          height="630"
+        ></iframe>
+      </div>
+      <div class="carousel-item content">
+        <iframe
+          class="d-block w-100 video"
+          [src]="video4 | domseguro: 'https://www.youtube.com/embed/'"
+          data-src="holder.js/1120x630?theme=industrial"
+          alt="900x400"
+          data-holder-rendered="true"
+          width="1120"
+          height="630"
+        ></iframe>
+      </div>
+      <div class="carousel-item content">
+        <iframe
+          class="d-block w-100 video"
+          [src]="video5 | domseguro: 'https://www.youtube.com/embed/'"
+          data-src="holder.js/1120x630?theme=industrial"
+          alt="900x400"
+          data-holder-rendered="true"
+          width="1120"
+          height="630"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />

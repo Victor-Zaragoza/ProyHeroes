@@ -1,0 +1,16 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+    <thead *ngFor="let us of usuarioo; let i = index">
+            <th scope="col">{{us.nombre}}</th>
+            <th scope="col">{{us.sexo}}</th>
+            <th scope="col">{{us.email}}</th>
+            <th scope="col">{{us.fecha}}</th>
+    </thead>
+</table>
