@@ -15,20 +15,34 @@
           </button>
 
         </div>
-        <div class="modal-body">
-          <span>Usuario: </span>
-          <input type="text" [(ngModel)]="usuario.nombre"><br><br>
-
-          <span>Sexo: </span><br>
-          <input name="options" ng-control="options" type="radio" [value]="1" [(ngModel)]="usuario.sexo">masculino<br />
-          <input name="options" ng-control="options" type="radio" [value]="2" [(ngModel)]="usuario.sexo">femenino<br />
-
-          <span>Email: </span>
-          <input type="text" [(ngModel)]="usuario.email"><br><br>
-
-          <span>Fecha: </span>
-          <input type="date" [(ngModel)]="usuario.fecha"><br><br>
+        <div>
+          <label for="nombre"> <i class="bi bi-person-fill"></i> Usuario</label>
+          <input type="text" [(ngModel)]="usuario.nombre">
+          <div class="nombre text-danger "></div>
         </div>
+        <div class="mb-4">
+          <label for="correo"><i class="bi bi-envelope-fill"></i> Email</label>
+          <input type="text" [(ngModel)]="usuario.email">
+          <div class="correo text-danger"></div>
+          
+          </div>
+        <div class="mb-4">
+        <label for="sexo"><i class="bi bi-gender-ambiguous"></i> Sexo: </label><br>
+        <input name="options" ng-control="options" type="radio" [value]="1" [(ngModel)]="usuario.sexo">masculino<br />
+        <input name="options" ng-control="options" type="radio" [value]="2" [(ngModel)]="usuario.sexo">femenino
+                      
+        <div class="sexo text-danger"></div>
+        </div>
+        
+        
+          <div >
+            <label for="apellido"> <i class="bi bi-person-bounding-box"></i> Fecha</label>
+            <input type="date" [(ngModel)]="usuario.fecha">
+            <div class="apellido text-danger"></div>
+          </div>   
+            
+        
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button class="btn btn-primary" (click)="agregarUsuario()">Registro</button>
