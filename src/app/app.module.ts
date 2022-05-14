@@ -11,7 +11,7 @@ import { SearchComponent } from './search/search.component';
 import { UnheroeComponent } from './unheroe/unheroe.component';
 import { HistoriaComponent } from './historia/historia.component';
 import { DomseguroPipe } from './domseguro.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TablaComponent } from './tabla/tabla.component';
 import { TrailersComponent } from './trailers/trailers.component';
 
@@ -33,6 +33,7 @@ import { TrailersComponent } from './trailers/trailers.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

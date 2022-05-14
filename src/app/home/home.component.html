@@ -15,38 +15,68 @@
           </button>
 
         </div>
-        <div>
-          <label for="nombre"> <i class="bi bi-person-fill"></i> Usuario</label>
-          <input type="text" [(ngModel)]="usuario.nombre">
-          <div class="nombre text-danger "></div>
-        </div>
-        <div class="mb-4">
-          <label for="correo"><i class="bi bi-envelope-fill"></i> Email</label>
-          <input type="text" [(ngModel)]="usuario.email">
-          <div class="correo text-danger"></div>
-          
+        <form [formGroup]="forma" (ngSubmit)="agregarUsuario()" class="needs-validation" novalidate>
+          <div class="form-group row">
+            <label for="nombre"> <i class="bi bi-person-fill col-2 col-form-label"></i> Usuario</label>
+            <div class="col-8">
+              <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre"
+                [ngClass]="{'is-invalid':!forma.get('nombre')?.valid}" [(ngModel)]="usuario.nombre">
+              <div *ngIf="forma.controls['nombre'].errors?.['required']" class="invalidfeedback">
+              El nombre es necesario
+              </div>
+              <div *ngIf="forma.controls['nombre'].errors?.['minlength']"
+              class="invalid-feedback">
+              Por lo menos tres caracteres
+              </div>
+              <div class="nombre text-danger "></div>
+            </div>
+
+
           </div>
-        <div class="mb-4">
-        <label for="sexo"><i class="bi bi-gender-ambiguous"></i> Sexo: </label><br>
-        <input name="options" ng-control="options" type="radio" [value]="1" [(ngModel)]="usuario.sexo">masculino<br />
-        <input name="options" ng-control="options" type="radio" [value]="2" [(ngModel)]="usuario.sexo">femenino
-                      
-        <div class="sexo text-danger"></div>
-        </div>
-        
-        
-          <div >
-            <label for="apellido"> <i class="bi bi-person-bounding-box"></i> Fecha</label>
-            <input type="date" [(ngModel)]="usuario.fecha">
-            <div class="apellido text-danger"></div>
-          </div>   
-            
-        
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" (click)="agregarUsuario()">Registro</button>
-        </div>
+          <div class="form-group row">
+            <label class="col-2 col-form-label" for="correo"><i class="bi bi-envelope-fill"></i> Email</label>
+            <div class="col-8">
+              <input type="email" formControlName="correo" [(ngModel)]="usuario.email" class="form-control" placeholder="Correo electronico"
+                [ngClass]="{'is-invalid':!forma.get('correo')?.valid }">
+              <div *ngIf="forma.controls['correo'].errors?.['required']" class="invalidfeedback">
+              Correo obligatorio
+              </div>
+              <div *ngIf="forma.controls['correo'].errors?.['email']"
+              class="invalid-feedback">
+              El correo no tiene el formato correcto
+              </div>
+              <div class="correo text-danger"></div>
+            </div>
+
+
+          </div>
+          <div class="mb-4">
+            <label for="sexo"><i class="bi bi-gender-ambiguous"></i> Sexo: </label><br>
+            <input formControlName="sexo" name="options" ng-control="options" type="radio" [value]="1"
+              [(ngModel)]="usuario.sexo">masculino<br />
+            <input formControlName="sexo" name="options" ng-control="options" type="radio" [value]="2" [(ngModel)]="usuario.sexo">femenino
+
+            <div class="sexo text-danger"></div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="apellido" class="col-2 col-form-label"> <i class="bi bi-person-bounding-box"></i> Fecha</label>
+            <div>
+              <input type="date" formControlName="fecha" [(ngModel)]="usuario.fecha" class="form-control" placeholder="fecha" >
+
+              <div class="apellido text-danger"></div>
+            </div>
+
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary" type="submit" [disabled]="forma.invalid">Registro</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

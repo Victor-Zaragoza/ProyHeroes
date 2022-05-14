@@ -1,5 +1,6 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Usuario } from '../usuarios';
+import{FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,24 @@ import { Usuario } from '../usuarios';
 export class HomeComponent implements OnInit {
   usuario!: Usuario;
   usuarios: Usuario[] = [];
+  title = 'formreactivos';
+  forma!: FormGroup;
+  persona:any={
+    nombre:"xxx",
+    correo:"zzz@www.com",
+    fecha:"yy-yy-yy",
+    sexo:null
+    }
 
   constructor() {
     this.usuario = JSON.parse(localStorage.getItem('user') || '[]');
+    this.forma = new FormGroup({
+      'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'fecha': new FormControl('', [Validators.required] ),
+      'correo': new FormControl('',[Validators.required,Validators.email]),
+      'sexo': new FormControl('',[Validators.required])
+      });
+      this.forma.setValue(this.persona);
   }
 
   agregarUsuario() {
@@ -48,6 +64,8 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('user', usr);
     }
   }
+  
+  
 
   ngOnInit(): void {
     this;
